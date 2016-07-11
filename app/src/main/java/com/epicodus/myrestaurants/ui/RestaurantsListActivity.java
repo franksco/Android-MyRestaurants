@@ -2,15 +2,19 @@ package com.epicodus.myrestaurants.ui;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.adapters.RestaurantListAdapter;
 import com.epicodus.myrestaurants.models.Restaurant;
@@ -28,6 +32,9 @@ import butterknife.ButterKnife;
 
 public class RestaurantsListActivity extends AppCompatActivity {
 
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
+
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private RestaurantListAdapter mAdapter;
 
@@ -41,19 +48,19 @@ public class RestaurantsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants);
         ButterKnife.bind(this);
+
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
-                == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(RestaurantsListActivity.this, "access", Toast.LENGTH_LONG).show();
-            getRestaurants(location);
-        }else{
-            Toast.makeText(RestaurantsListActivity.this, "no access", Toast.LENGTH_LONG).show();
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.INTERNET },
-                    PERMISSION_ACCESS_INTERNET);
-            getRestaurants(location);
-        }
+        getRestaurants(location);
+
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//
+//
+//        if (mRecentAddress != null) {
+//            getRestaurants(mRecentAddress);
+//        }
 
 
 
