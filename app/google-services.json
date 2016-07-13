@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "545154964772",
-    "firebase_url": "https://myrestaurants-e78e4.firebaseio.com",
-    "project_id": "myrestaurants-e78e4",
-    "storage_bucket": "myrestaurants-e78e4.appspot.com"
+    "project_number": "654772336422",
+    "firebase_url": "https://android-myrestaurants-30d20.firebaseio.com",
+    "project_id": "android-myrestaurants-30d20",
+    "storage_bucket": "android-myrestaurants-30d20.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:545154964772:android:dff6c1b29d00d12f",
+        "mobilesdk_app_id": "1:654772336422:android:dff6c1b29d00d12f",
         "android_client_info": {
           "package_name": "com.epicodus.myrestaurants"
         }
       },
       "oauth_client": [
         {
-          "client_id": "545154964772-8cvnehfkr5di3k6jkl7o6k20v0i8pg88.apps.googleusercontent.com",
+          "client_id": "654772336422-63iq7ja0farmhqpmv56g14dbe3nmiefm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.epicodus.myrestaurants",
-            "certificate_hash": "F298A0F33319FDF0E4351F49BAACFBD52D6A0C01"
+            "certificate_hash": "94B7BA0CB1A479AB5A1A9F80885C13A0CCED647B"
           }
         },
         {
-          "client_id": "545154964772-uoqseca3fio7gtihmphrue43c088hgq1.apps.googleusercontent.com",
+          "client_id": "654772336422-t1grg6jiqutf31mao1i100tsekoo1kih.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCgQTHD9mIXU1dQbxYuU_k4EJbjnvCDTLA"
+          "current_key": "AIzaSyA9O83tq8yys3S47SmNdkks0a1WfeRSOys"
         }
       ],
       "services": {
@@ -37,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654772336422-t1grg6jiqutf31mao1i100tsekoo1kih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
