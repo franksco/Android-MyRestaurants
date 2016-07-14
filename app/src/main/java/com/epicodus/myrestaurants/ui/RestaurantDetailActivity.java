@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.adapters.RestaurantPagerAdapter;
 import com.epicodus.myrestaurants.models.Restaurant;
@@ -26,8 +27,8 @@ public class RestaurantDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant_detail);
         ButterKnife.bind(this);
 
-        mRestaurants = Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
-        int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
+        mRestaurants = Parcels.unwrap(getIntent().getParcelableExtra(Constants.INTENT_KEY_RESTAURANTS));
+        int startingPosition = getIntent().getIntExtra(Constants.INTENT_KEY_POSITION, 0);
 
         adapterViewPager = new RestaurantPagerAdapter(getSupportFragmentManager(), mRestaurants);
         mViewPager.setAdapter(adapterViewPager);

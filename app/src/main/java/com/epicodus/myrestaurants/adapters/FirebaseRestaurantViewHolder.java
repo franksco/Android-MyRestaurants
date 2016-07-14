@@ -3,6 +3,7 @@ package com.epicodus.myrestaurants.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.models.Restaurant;
 import com.epicodus.myrestaurants.ui.RestaurantDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -58,7 +60,8 @@ public class FirebaseRestaurantViewHolder extends ViewHolder implements View.OnC
     @Override
     public void onClick(View view) {
         final ArrayList<Restaurant> restaurants = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS).child(uid);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -69,9 +72,11 @@ public class FirebaseRestaurantViewHolder extends ViewHolder implements View.OnC
 
                 int itemPosition = getLayoutPosition();
 
+                Log.d("Restaurants Size", restaurants.size() + "");
+
                 Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("restaurants", Parcels.wrap(restaurants));
+                intent.putExtra(Constants.INTENT_KEY_POSITION, itemPosition);
+                intent.putExtra(Constants.INTENT_KEY_RESTAURANTS, Parcels.wrap(restaurants));
 
                 mContext.startActivity(intent);
             }
