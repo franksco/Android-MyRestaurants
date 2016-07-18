@@ -28,7 +28,7 @@ public class RestaurantDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mRestaurants = Parcels.unwrap(getIntent().getParcelableExtra(Constants.INTENT_KEY_RESTAURANTS));
-        int startingPosition = getIntent().getIntExtra(Constants.INTENT_KEY_POSITION, 0);
+        int startingPosition = getIntent().getIntExtra("position", 0);
 
         adapterViewPager = new RestaurantPagerAdapter(getSupportFragmentManager(), mRestaurants);
         mViewPager.setAdapter(adapterViewPager);

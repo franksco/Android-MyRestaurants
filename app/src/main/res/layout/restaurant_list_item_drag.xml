@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/restaurantImageView"
+            android:src="@drawable/waffles"
+            android:scaleType="centerCrop"
+            android:layout_width="130dp"
+            android:layout_height="100dp" />
+
+        <ImageView
+            android:id="@+id/dragIcon"
+            android:gravity="bottom|left"
+            android:src="@drawable/ic_reorder_white_24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/restaurantImageView"
+            android:layout_alignBottom="@id/restaurantImageView" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/restaurantNameTextView"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="Restaurant Name"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="One Cuisine Type"
+            android:textStyle="italic"
+            android:id="@+id/categoryTextView"
+            android:layout_below="@+id/restaurantNameTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/ratingTextView"
+                android:text="Rating"
+                android:textColor="@color/colorAccent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
